@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 /**
  * Main app class.
  */
+
 public class GameOfLife extends JFrame {
 	/**
 	 * This is default serialVersionUID.
@@ -134,6 +135,10 @@ public class GameOfLife extends JFrame {
 			e.printStackTrace();
 		}
 
+		/*matcher.find() goes through everything that was loaded from input file and tries to find matches for the regular expression
+		- i.e. groups of "number comma number semicolon".
+		Where semicolon is optional, and "number" can be one or more digit.*/
+
 		// Regular expression will match on 2 numbers (each a sequence of 1 or more digits) separated by comma
 		// Groups of numbers are separated by semicolon or a new line
 		String patternString = "((\\d+),(\\d+));?";
@@ -176,6 +181,8 @@ public class GameOfLife extends JFrame {
 	/**
 	 * Decide which cells live or die, where new ones are born.
 	 */
+
+	// x iterates over rows, y iterates over columns for (int x = 0; x < FIELD_SIZE; x++) { for (int y = 0; y < FIELD_SIZE; y++) {...
 	private void process() {
 		int x1, y1, count;
 		// Empty arrays of next generation and candidates.
